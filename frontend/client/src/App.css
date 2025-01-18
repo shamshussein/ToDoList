@@ -1,81 +1,191 @@
 .App {
-  text-align: center;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  min-height: 100vh;
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f5f5f5;
   margin: 0;
 }
 
 .Container {
+  width: 90%;
   max-width: 600px;
-  margin: 0 auto;
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .title h1 {
+  text-align: center;
   margin: 0;
-  font-size: 24px;
+  font-size: 2rem;
   color: #333;
 }
 
 .top {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
-.top input {
+input {
   flex: 1;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .add {
-  background: #28a745;
+  padding: 10px 20px;
+  background: #007bff;
   color: white;
   border: none;
-  padding: 10px 20px;
   border-radius: 4px;
-  font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s;
 }
 
 .add:hover {
-  background: #218838;
+  background: #0056b3;
 }
 
 .list {
   margin-top: 20px;
 }
 
-.list .item {
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.filters button {
+  padding: 8px 12px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.filters button.active {
+  background: #007bff;
+  color: white;
+}
+
+.filters button:hover {
+  background: #0056b3;
+  color: white;
+}
+
+.item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #ddd;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background: #f9f9f9;
+  transition: background 0.3s;
 }
 
-.item .text {
-  font-size: 16px;
+.item.completed .text {
+  text-decoration: line-through;
+  color: gray;
 }
 
-.item button {
-  background: none;
-  border: none;
-  color: #dc3545;
+.item:hover {
+  background: #f0f8ff;
+}
+
+.item .icons {
+  display: flex;
+  gap: 10px;
+}
+
+.item .icons i {
+  font-size: 20px;
   cursor: pointer;
-  font-size: 16px;
-  margin-left: 10px;
 }
 
-.item button:hover {
-  text-decoration: underline;
+.item .text i {
+  margin-right: 10px;
+  font-size: 18px;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.item .text i.ri-check-fill {
+  color: green; 
+}
+
+.add, .filters button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add:hover, .filters button:hover {
+  background-color: #0056b3;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.icons i {
+  margin: 0 5px;
+  cursor: pointer;
+  color: #333;
+}
+
+.icons i:hover {
+  color: #007bff;
+}
+
+.spinner {
+  font-size: 2rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.clear-completed {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.clear-completed button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.clear-completed button:hover {
+  background-color: #0056b3;
 }
